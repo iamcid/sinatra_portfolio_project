@@ -1,1 +1,17 @@
-<h4> Welcome, <%= @u.username %></h4>
+<h2> Welcome, <%= current_user.username %>!</h2>
+
+<h3>Garage:</h3>
+<% if current_user.cars != 0 %>
+    <p><%= current_user.cars %></p>
+<% else %>
+    <p>"You don't have any cars in your garage!"</p>
+<% end %>
+
+<h4>Add a car to your garage:</h4>
+<form action="/create_car" method="post">
+    <input type="text" name="year" placeholder="Year">
+    <input type="text" name="make" placeholder="Make">
+    <input type="text" name="model" placeholder="Model">
+    <input type="text" name="color" placeholder="Color">
+    <input type="submit" value="Add car">
+</form>

@@ -13,9 +13,10 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    /* background-image: url("../images/gear-wallpaper-6.jpg"); */
-    background-color: rgb(19, 18, 18);
-    color: #333;
+    background-image: url("https://www.grandeurfasteners.com/wp-content/uploads/2017/04/638409178.jpg");
+    /* background-color: rgb(19, 18, 18); */
+    /* color: #333; */
+    background-size: 100%;
     font-family: Sans-Serif;
     line-height: 18px;
   }

@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
-    get '/dashboard' do
+    get '/users/:id' do
         authenticate
-        @u = current_user
         erb :"users/dashboard"
     end
+
+    
 end

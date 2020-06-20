@@ -10,13 +10,17 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :homepage
+    if !logged_in?
+      erb :homepage
+    else 
+      redirect to '/users/dashboard'
+    end
   end
 
   helpers do
 
     def current_user
-      User.find_by(id: session[:user_id])
+      @user ||= User.find_by(id: session[:user_id])
     end
 
     def logged_in?
@@ -26,6 +30,7 @@ class ApplicationController < Sinatra::Base
     def authenticate
       redirect '/login' if !logged_in?
     end
+
   end
 
 end
