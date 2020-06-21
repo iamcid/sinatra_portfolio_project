@@ -1,11 +1,14 @@
 <h2> Welcome, <%= current_user.username %>!</h2>
 
 <h3>Garage:</h3>
-<% if current_user.cars != 0 %>
-    <p><%= current_user.cars %></p>
-<% else %>
-    <p>"You don't have any cars in your garage!"</p>
+<!-- Display user's current cars -->
+<% current_user.cars.each do |car| %>
+    <ol><%= car.name %></ol>
 <% end %>
+
+    <!-- Display this message if user doesn't have any cars in their garage -->
+    <p>You currently don't have any cars in your garage!</p>
+
 
 <h4>Add a car to your garage:</h4>
 <form action="/create_car" method="post">
@@ -15,3 +18,5 @@
     <input type="text" name="color" placeholder="Color">
     <input type="submit" value="Add car">
 </form>
+<br>
+<h4><a href="/logout">Log Out</a></h4>

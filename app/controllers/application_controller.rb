@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     if !logged_in?
-      erb :homepage
+      erb :index
     else 
       redirect to '/users/dashboard'
     end
