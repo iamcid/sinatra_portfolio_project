@@ -1,7 +1,11 @@
 class CarsController < ApplicationController
 
-    post '/create_car' do
-        binding.pry
+    get '/cars/new' do
+        erb :"cars/new"
+    end
+
+    post '/cars' do
+
     end
 
 end

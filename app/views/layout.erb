@@ -17,8 +17,12 @@
   
     <div class="wrapper">
     <h1>Gearhead Community.</h1>
-        <%= yield %>
-
+    
+        <%= yield %><br>
+      <% if logged_in? %>
+        <a href="/users/dashboard">Home</a>
+        <a href="/logout">Log Out</a>
+      <% end %>
       <footer class="branding">
         <small>&copy; 2020 <strong>Gearhead Community</strong></small>
       </footer>

@@ -6,17 +6,8 @@
     <ol><%= car.name %></ol>
 <% end %>
 
-    <!-- Display this message if user doesn't have any cars in their garage -->
-    <p>You currently don't have any cars in your garage!</p>
+<!-- Display this message if user doesn't have any cars in their garage -->
+<p>You currently don't have any cars in your garage!</p>
 
 
-<h4>Add a car to your garage:</h4>
-<form action="/create_car" method="post">
-    <input type="text" name="year" placeholder="Year">
-    <input type="text" name="make" placeholder="Make">
-    <input type="text" name="model" placeholder="Model">
-    <input type="text" name="color" placeholder="Color">
-    <input type="submit" value="Add car">
-</form>
-<br>
-<h4><a href="/logout">Log Out</a></h4>
+<h3><a href="/cars/new">Add a car to your garage</a></h3>
