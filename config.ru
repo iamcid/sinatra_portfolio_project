@@ -6,6 +6,5 @@ end
 
 use Rack::MethodOverride
 use CarsController
-use UsersController
 use SessionsController
 run ApplicationController

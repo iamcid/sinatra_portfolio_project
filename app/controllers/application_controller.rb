@@ -31,6 +31,9 @@ class ApplicationController < Sinatra::Base
       redirect '/login' if !logged_in?
     end
 
+    def authorized?(car)
+      @car.user == @user
+    end
   end
 
 end

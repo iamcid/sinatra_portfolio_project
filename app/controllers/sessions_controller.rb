@@ -29,6 +29,11 @@ class SessionsController < ApplicationController
         end
     end
 
+    get '/users/:id' do
+        authenticate
+        erb :"users/dashboard"
+    end
+
     get '/logout' do
         session.clear
         redirect "/"

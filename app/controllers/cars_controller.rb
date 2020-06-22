@@ -1,14 +1,17 @@
 class CarsController < ApplicationController
+    
+    get '/cars' do
+        @cars = Car.all
+        erb :"users/dashboard"
+    end
 
     get '/cars/new' do
+        authenticate
         erb :"cars/new"
     end
 
     post '/cars' do
-        if !logged_in?
-            redirect '/'
-        end
-
+       authenticate
         @car = @user.cars.build(year: params[:year], make: params[:make], model: params[:model], color: params[:color])
         
         if @car.save
@@ -18,4 +21,44 @@ class CarsController < ApplicationController
         end
     end
 
+    get '/cars/:id' do
+        authenticate
+        if @user
+            @car = Car.find_by(id: params[:id])
+            erb :"cars/show"
+        else
+            redirect '/login'
+        end
+    end
+
+    get '/cars/:id/edit' do
+        authenticate
+        @car = Car.find_by(id: params[:id])
+        if @car && @car.user == @user
+            erb :"cars/edit"
+        else
+            redirect '/users/dashboard'
+        end
+    end
+
+    patch '/cars/:id' do
+        authenticate
+        @car = Car.find_by(id: params[:id])
+
+        if @car.user == @user && params[:year] != "" && params[:make] != "" && params[:model] != "" && params[:color] != ""
+            @car.update(year: params[:year], make: params[:make], model: params[:model], color: params[:color]) 
+            redirect "/users/dashboard"
+        else
+            redirect "/cars/edit"
+        end
+      end
+
+    delete '/cars/:id' do
+        authenticate
+        @car = Car.find_by(id: params[:id])
+        if @car
+            @car.destroy
+            redirect '/users/dashboard'
+        end
+    end
 end
