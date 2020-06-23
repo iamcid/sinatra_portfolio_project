@@ -10,11 +10,12 @@ class SessionsController < ApplicationController
 
     post '/signup' do
         @u = User.new(username: params[:username], password: params[:password])
-        if params[:username] != "" && params[:password] != "" && @u.save
+        if @u.save
             session[:user_id] = @u.id
-            redirect "/login"
+            redirect "/users/dashboard"
         else
-            redirect "/signup"
+            @user.errors.any?
+            erb :"/sessions/signup"
         end
     end
 
@@ -24,7 +25,6 @@ class SessionsController < ApplicationController
             session[:user_id] = u.id
             redirect "/users/#{u.id}"
         else
-            @error = "Invalid credentials, try again!"
             erb :"sessions/login"
         end
     end

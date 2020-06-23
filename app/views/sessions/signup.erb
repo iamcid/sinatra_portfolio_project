@@ -2,7 +2,7 @@
 
 <% if @u && @u.errors.any? %>
     <% @u.errors.full_messages.each do |m| %>
-        <p class="danger"><%= m %></p>
+        <p style="color: red;">*<%= m %>!*</p>
     <% end %>   
 <% end %>
 

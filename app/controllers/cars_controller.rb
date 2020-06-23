@@ -11,10 +11,10 @@ class CarsController < ApplicationController
     end
 
     post '/cars' do
-       authenticate
+        authenticate
         @car = @user.cars.build(year: params[:year], make: params[:make], model: params[:model], color: params[:color])
         
-        if @car.save
+        if @car.save && params[:year] != "" && params[:make] != "" && params[:model] != "" && params[:color] != ""
             redirect "/users/dashboard"
         else
             redirect '/cars/new'
@@ -49,7 +49,7 @@ class CarsController < ApplicationController
             @car.update(year: params[:year], make: params[:make], model: params[:model], color: params[:color]) 
             redirect "/users/dashboard"
         else
-            redirect "/cars/edit"
+            erb :"/cars/edit"
         end
       end
 
