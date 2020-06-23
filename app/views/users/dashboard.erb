@@ -5,8 +5,10 @@
     <h4>You currently don't have any cars in your garage!</h4>
 <% else %>
     <% @user.cars.each do |car| %>
-        <a href="/cars/show"><%= car.year %> <%= car.make %> <%= car.model %> <%= car.color %></a><br>
+        -<a href="/cars/<%= car.id %>"><%= car.year %> <%= car.make %> <%= car.model %> <%= car.color %></a><br>
     <% end %>
 <% end %>
 <br>
-<h3><a href="/cars/new">Add a car to your garage</a></h3>
+<form method="get" action="/cars/new">
+    <button type="submit">Add a car to your garage</button>
+</form>

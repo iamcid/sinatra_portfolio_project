@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
     validates :username, uniqueness: true
     
     has_many :cars
+    has_many :parts, through: :cars
 end

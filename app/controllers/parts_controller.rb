@@ -1,25 +1,25 @@
-class CarsController < ApplicationController
+class PartsController < ApplicationController
     
-    get '/cars' do
+    get '/parts' do
         authenticate
-        @cars = @user.cars
+        @parts = @car.parts
         erb :"users/dashboard"
     end
 
-    get '/cars/new' do
+    get '/parts/new' do
         authenticate
-        erb :"cars/new"
+        erb :"parts/new"
     end
 
-    post '/cars' do
+    post '/parts' do
         authenticate
-        @car = @user.cars.build(year: params[:year], make: params[:make], model: params[:model], color: params[:color])
+        @part = @cars.parts.build(name: params[:name], category: params[:category])
         
-        if @car.save && params[:year] != "" && params[:make] != "" && params[:model] != "" && params[:color] != ""
-            redirect "/users/dashboard"
+        if @part.save && params[:name] != "" && params[:category] != ""
+            redirect "/cars/show"
         else
             @error = "Invalid input, please try again!"
-            redirect '/cars/new'
+            redirect '/parts/new'
         end
     end
 
