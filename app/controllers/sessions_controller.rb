@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @u.id
             redirect "/users/dashboard"
         else
-            @user.errors.any?
+            @u.errors.any?
             erb :"/sessions/signup"
         end
     end

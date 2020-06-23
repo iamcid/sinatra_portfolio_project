@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200617035034) do
+ActiveRecord::Schema.define(version: 20200623050540) do
+
+  create_table "car_parts", force: :cascade do |t|
+    t.integer "car_id"
+    t.integer "part_id"
+  end
 
   create_table "cars", force: :cascade do |t|
     t.integer "user_id"

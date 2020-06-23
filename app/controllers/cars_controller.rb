@@ -1,7 +1,8 @@
 class CarsController < ApplicationController
     
     get '/cars' do
-        @cars = Car.all
+        authenticate
+        @cars = @user.cars
         erb :"users/dashboard"
     end
 
@@ -17,6 +18,7 @@ class CarsController < ApplicationController
         if @car.save && params[:year] != "" && params[:make] != "" && params[:model] != "" && params[:color] != ""
             redirect "/users/dashboard"
         else
+            @error = "Invalid input, please try again!"
             redirect '/cars/new'
         end
     end

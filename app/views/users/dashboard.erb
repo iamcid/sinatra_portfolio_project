@@ -5,7 +5,7 @@
     <h4>You currently don't have any cars in your garage!</h4>
 <% else %>
     <% @user.cars.each do |car| %>
-        <%= car.year %> <%= car.make %> <%= car.model %> <%= car.color %> <a href="/cars/<%= car.id %>/edit">Edit Car</a><br>
+        <a href="/cars/show"><%= car.year %> <%= car.make %> <%= car.model %> <%= car.color %></a><br>
     <% end %>
 <% end %>
 <br>

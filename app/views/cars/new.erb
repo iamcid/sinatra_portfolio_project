@@ -1,3 +1,7 @@
+<% if @error %>
+    <p style="color: red;"><%= @error %></p>
+<% end %>
+
 <h4>Add a car to your garage:</h4>
 <form action="/cars" method="post">
     <input type="text" name="year" placeholder="Year"><br>
