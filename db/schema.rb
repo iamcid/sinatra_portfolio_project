@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200623050540) do
-
-  create_table "car_parts", force: :cascade do |t|
-    t.integer "car_id"
-    t.integer "part_id"
-  end
+ActiveRecord::Schema.define(version: 20200617035034) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "user_id"
@@ -24,12 +19,7 @@ ActiveRecord::Schema.define(version: 20200623050540) do
     t.string  "make"
     t.string  "model"
     t.string  "color"
-  end
-
-  create_table "parts", force: :cascade do |t|
-    t.integer "car_id"
-    t.string  "name"
-    t.string  "category"
+    t.string  "parts"
   end
 
   create_table "users", force: :cascade do |t|

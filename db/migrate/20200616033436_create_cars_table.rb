@@ -6,6 +6,7 @@ class CreateCarsTable < ActiveRecord::Migration
       t.string :make
       t.string :model
       t.string :color
+      t.string :parts
     end
   end
 end

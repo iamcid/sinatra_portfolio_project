@@ -1,11 +1,16 @@
+<% if @error %>
+    <p style="color: red;">*<%= @error %>*</p>
+<% end %>
+
 <h1>Edit <%= @car.year %> <%= @car.make %> <%= @car.model %> <%= @car.color %></h1>
 <form action="/cars/<%= @car.id %>" method="post">
     <input type="hidden" name="_method" value="patch">
-    <input type="text" name="year" value="<%= @car.year %>"><br>
-    <input type="text" name="make" value="<%= @car.make %>"><br>
-    <input type="text" name="model" value="<%= @car.model %>"><br>
-    <input type="text" name="color" value="<%= @car.color %>"><br>
-    <br><input type="submit" value="Edit Car">
+    Year: <input type="text" name="year" value="<%= @car.year %>"><br>
+    Make: <input type="text" name="make" value="<%= @car.make %>"><br>
+    Model: <input type="text" name="model" value="<%= @car.model %>"><br>
+    Color: <input type="text" name="color" value="<%= @car.color %>"><br>
+    Parts: <textarea type="text" name="parts"></textarea>
+    <br><input type="submit" value="Update Car">
 </form>
 <br>
 <form action="/cars/<%= @car.id %>" method="post">

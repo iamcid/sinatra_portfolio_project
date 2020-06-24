@@ -1,8 +1,7 @@
 class Car < ActiveRecord::Base
 
     belongs_to :user
-    has_many :parts
 
-    validates :year, :make, :model, :color, presence: true
+    validates :year, :make, :model, :color, :parts, presence: true
     
 end

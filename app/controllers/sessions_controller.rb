@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
     post '/signup' do
         @u = User.new(username: params[:username], password: params[:password])
         if @u.save
-            session[:user_id] = @u.id
-            redirect "/users/dashboard"
+            redirect "/login"
         else
             @u.errors.any?
             erb :"/sessions/signup"

@@ -1,7 +1,5 @@
 <h2><%= @car.year %> <%= @car.make %> <%= @car.model %> <%= @car.color %></h2>
-<!-- Display car's parts -->
-SHOW CAR'S PARTS <br><br>
+
+<strong>Parts:</strong> <%= @car.parts %><br><br>
 <form method="get" action="/cars/<%= @car.id %>/edit">
 <button type="submit">Edit Car</button></form><br>
-<form method="get" action="/parts/new">
-<button type="submit">Add parts</button></form>

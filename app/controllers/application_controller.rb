@@ -34,8 +34,7 @@ class ApplicationController < Sinatra::Base
 
     def authorize(car)
       authenticate
-      redirect '/users/dashboard' if @user != @car.user
+      redirect 'users/dashboard' if car.user != @user
     end
   end
-
 end
