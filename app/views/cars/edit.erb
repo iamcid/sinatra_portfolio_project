@@ -9,7 +9,7 @@
     Make: <input type="text" name="make" value="<%= @car.make %>"><br>
     Model: <input type="text" name="model" value="<%= @car.model %>"><br>
     Color: <input type="text" name="color" value="<%= @car.color %>"><br>
-    Parts: <textarea type="text" name="parts"></textarea>
+    Parts: <textarea class="textarea" type="text" id="car_parts" name="parts" rows="4" cols="50"/><%= @car.parts%></textarea>
     <br><input type="submit" value="Update Car">
 </form>
 <br>

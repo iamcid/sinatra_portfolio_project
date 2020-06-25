@@ -37,4 +37,14 @@ class ApplicationController < Sinatra::Base
       redirect 'users/dashboard' if car.user != @user
     end
   end
+
+  not_found do
+    status 404
+    erb :"sessions/error"
+  end
+
+  error ActiveRecord::RecordNotFound do
+    status 404
+    erb :"sessions/error"
+  end
 end

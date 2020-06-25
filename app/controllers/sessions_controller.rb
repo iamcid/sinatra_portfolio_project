@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     post '/signup' do
         @u = User.new(username: params[:username], password: params[:password])
-        if @u.save
+        if @u.save && params[:username] != "" && params[:password] != ""
             redirect "/login"
         else
             @u.errors.any?
